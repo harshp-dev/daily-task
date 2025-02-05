@@ -1,5 +1,6 @@
 const fs = require("fs");
 const http = require("http");
+const { type } = require("os");
 const url = require("url");
 const PORT = 3000;
 const filePath = "./data.json";
@@ -23,7 +24,6 @@ const writeFile = (data) => {
     console.error("Error writing file:", err);
   }
 };
-
 // Create HTTP server
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
