@@ -7,12 +7,12 @@ const filePath = "./data.json";
 
 // Read file asynchronously
 const readFile = (callback) => {
-  fs.readFile(filePath, "utf8", (err, data) => {
+  fs.readFile(filePath, "utf8", async (err, data) => {
     if (err) {
       console.error("Error reading file:", err);
       callback([]);
     } else {
-      callback(JSON.parse(data));
+      await callback(JSON.parse(data));
     }
   });
 };
@@ -118,3 +118,5 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+console.log("Hello World");
